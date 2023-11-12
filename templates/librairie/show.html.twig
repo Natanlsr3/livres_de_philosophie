@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Librairie
+{% endblock %}
+
+{% block body %}
+
+    <h1>Librairie</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ librairie.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ librairie.nom }}</td>
+        </tr>
+        <tr>
+            <th>Lecteur</th>
+            <td>{{ librairie.lecteur }}</td>
+        </tr>
+        <tr>
+            <th>Livres</th>
+            <td>
+                <ul>
+                    {%  for livre in librairie.livres %}
+                        <li>
+                            <a href="{{ path('livre_show', { 'id': livre.id }) }}">{{ livre }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('librairie') }}">
+        Retour aux Librairies
+    </a>
+
+
+
+{% endblock %}
